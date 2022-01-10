@@ -111,5 +111,5 @@ if __name__ == "__main__":
         # 改ページ処理を抜ける
         if page_counter == PAGE_MAX:
             break
-    # 閉じる
+    # 閉じ
     driver.quit()
