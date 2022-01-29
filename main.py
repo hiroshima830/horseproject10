@@ -89,22 +89,23 @@ horse_data_columns = [
 ]
 
 # 月ごとに検索
-year = 2022
+year = 2021
 month = 1
+# ファイルのタイトル
 
-# 期間を選択
+# 期間を選択 初めの年月と終わりの年月を入れる　runする際はクロームをとしてから
 start_year_element = driver.find_element_by_name('start_year')
 start_year_select = Select(start_year_element)
-start_year_select.select_by_value(str(year))
+start_year_select.select_by_value(str(2017))
 start_mon_element = driver.find_element_by_name('start_mon')
 start_mon_select = Select(start_mon_element)
-start_mon_select.select_by_value(str(month))
+start_mon_select.select_by_value(str(1))
 end_year_element = driver.find_element_by_name('end_year')
 end_year_select = Select(end_year_element)
-end_year_select.select_by_value(str(year))
+end_year_select.select_by_value(str(2021))
 end_mon_element = driver.find_element_by_name('end_mon')
 end_mon_select = Select(end_mon_element)
-end_mon_select.select_by_value(str(month))
+end_mon_select.select_by_value(str(12))
 
 # 中央競馬場をチェック
 for i in range(1, 11):
@@ -247,13 +248,13 @@ def get_rade_and_horse_data_by_html(race_id, html):
         # horse_number
         horse_list.append(result_row[2].get_text())
         # horse_id
-        horse_list.append(result_row[3].find('a').get('href').split("/")[-2])
+        horse_list.append(result_row[3].find('a').get('title'))
         # sex_and_age
         horse_list.append(result_row[4].get_text())
         # burden_weight
         horse_list.append(result_row[5].get_text())
         # rider_id
-        horse_list.append(result_row[6].find('a').get('href').split("/")[-2])
+        horse_list.append(result_row[6].find('a').get('title'))
         # goal_time
         horse_list.append(result_row[7].get_text())
         # goal_time_dif
@@ -274,9 +275,9 @@ def get_rade_and_horse_data_by_html(race_id, html):
         horse_list.append(result_row[15].get_text())
         # 16:コメント、17:備考
         # tamer_id
-        horse_list.append(result_row[18].find('a').get('href').split("/")[-2])
+        horse_list.append(result_row[18].find('a').get('title'))
         # owner_id
-        horse_list.append(result_row[19].find('a').get('href').split("/")[-2])
+        horse_list.append(result_row[19].find('a').get('title'))
 
         horse_list_list.append(horse_list)
 
